@@ -14,6 +14,12 @@ class TodoList extends Component {
     this.handleBtnClick = this.handleBtnClick.bind(this);
     this.handleItemDelete = this.handleItemDelete.bind(this);
   }
+
+  //組件即將被掛載到頁面的時候自動執行
+  componentWillMount() {
+    console.log("componentWillMount");
+  }
+
   render() {
     return (
       <Fragment>
@@ -24,12 +30,37 @@ class TodoList extends Component {
             className="input"
             value={this.state.inputValue}
             onChange={this.handleInputChange}
+            ref={input => {
+              this.input = input;
+            }}
           />
           <button onClick={this.handleBtnClick}>提交</button>
         </div>
         <ul>{this.getTodoItem()}</ul>
       </Fragment>
     );
+  }
+
+  //組件被掛載到頁面之後，自動執行
+  componentDidMount() {
+    console.log("componentDidMount");
+  }
+
+  //組建被更新之前，他會被自動被執行
+  shouldComponentUpdate() {
+    console.log("shouldComponentUpdate");
+    return true;
+  }
+  //組建被更新之前，它會自動執行，但是他在ShouldComponentUpdate之後被執行
+  //如果ShouldComponentUpdate返回true它才執行
+  //如果返回false，這個函數就不會被執行了
+  componentWillUpdate() {
+    console.log("componentWillUpdate");
+  }
+
+  //組建更新完畢之後會被執行
+  componentDidUpdate() {
+    console.log("componentDidUpdate");
   }
 
   getTodoItem() {
@@ -51,9 +82,9 @@ class TodoList extends Component {
       // );
     });
   }
-  handleInputChange(e) {
+  handleInputChange() {
     //異步 setState
-    const value = e.target.value;
+    const value = this.input.value;
     this.setState(() => ({
       inputValue: value
     }));
