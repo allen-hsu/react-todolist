@@ -160,3 +160,7 @@ console.log("child componentWillReceiveProps");
 componentWillUnmount() {
 console.log("child componentWillUnmount");
 }
+
+## React 生命週期 鉤子
+
+render 函式默認沒有實現，所以其他生命週期函數都可以不實作，但 render 不行

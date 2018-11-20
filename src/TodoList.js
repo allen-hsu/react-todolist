@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import TodoItem from "./TodoItem";
+import axios from "axios";
 import "./style.css";
 
 class TodoList extends Component {
@@ -43,6 +44,15 @@ class TodoList extends Component {
 
   //組件被掛載到頁面之後，自動執行
   componentDidMount() {
+    //網路請求 <--建議放這裡
+    axios
+      .get("/api/todolist")
+      .then(() => {
+        alert("succ");
+      })
+      .catch(() => {
+        alert("error");
+      });
     console.log("componentDidMount");
   }
 
