@@ -4,6 +4,7 @@ import store from "./store";
 import TodoListUI from "./TodoLIstUI";
 import axios from "axios";
 import {
+  getInitList,
   getTodoList,
   getInputChangeAction,
   getAddItemAction,
@@ -33,8 +34,12 @@ class TodoListAntd extends Component {
     );
   }
   componentDidMount() {
-    const action = getTodoList();
+    const action = getInitList();
     store.dispatch(action);
+    //Redux-thunk
+    // const action = getTodoList();
+    // store.dispatch(action);
+
     // axios.get("/list.json").then(res => {
     //   const data = res.data;
     //   const action = initListAction(data);

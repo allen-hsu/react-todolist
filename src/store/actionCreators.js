@@ -2,7 +2,8 @@ import {
   CHANGE_INPUT_VALUE,
   ADD_TODO_ITEM,
   DELETE_TODO_ITEM,
-  INIT_LIST_ACTION
+  INIT_LIST_ACTION,
+  GET_INIT_LIST
 } from "./actionTypes";
 
 import axios from "axios";
@@ -35,3 +36,7 @@ export const getTodoList = () => {
     });
   };
 };
+
+export const getInitList = () => ({
+  type: GET_INIT_LIST
+});
