@@ -6,7 +6,7 @@ const TodoList = props => {
     inputValue,
     changeInputValue,
     handleClick,
-    handleDelete,
+    handleItemDelete,
     list
   } = props;
   return (
@@ -20,7 +20,7 @@ const TodoList = props => {
           return (
             <li
               onClick={() => {
-                props.handleItemDelete(index);
+                handleItemDelete(index);
               }}
               key={index}
             >
