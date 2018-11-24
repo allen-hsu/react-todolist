@@ -12,7 +12,7 @@ import {
   initListAction
 } from "./store/actionCreators";
 
-class TodoListAntd extends Component {
+class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
@@ -63,4 +63,4 @@ class TodoListAntd extends Component {
   }
 }
 
-export default TodoListAntd;
+export default TodoList;
